@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:style="http://schemas.android.com/apk/res-auto"
+    package="com.group4.smartaccess">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".CheckInSuccessfullyActivity"
+            android:parentActivityName=".KioskCheckInActivity"/>
+        <activity
+            android:name=".CheckOutSuccessfulActivity"
+            android:parentActivityName=".KioskCheckoutActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".KioskCheckoutActivity"
+            android:parentActivityName=".KioskModeActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".KioskReservationActivity"
+            android:parentActivityName=".KioskModeActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".KioskCheckInActivity"
+            android:parentActivityName=".KioskReservationActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AdminModeActivity"
+            android:parentActivityName=".LoginScreenActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".KioskModeActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ConsumerModeActivity"
+            android:label="@string/title_activity_consumer_mode"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".RegisterScreenActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LoginScreenActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
