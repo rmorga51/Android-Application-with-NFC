@@ -38,7 +38,7 @@ public class KioskCheckInActivity extends AppCompatActivity {
     public void testCheckIn(View view){
         Intent checkInSuccess = new Intent (this, CheckInSuccessfullyActivity.class);
         startActivity(checkInSuccess);
-        finish();
+        returnTimer.cancel();
     }
 
     CountDownTimer returnTimer = new CountDownTimer(30000, 1000) {

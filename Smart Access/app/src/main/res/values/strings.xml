@@ -5,7 +5,7 @@
     <string name="button_login">Login</string>
     <string name="input_email">Enter Email</string>
     <string name="input_password">Enter password</string>
-    <string name="link_forgotpw">Forgot Password</string>
+    <string name="link_forgotpw">Forgot Password?</string>
     <string name="input_confirmpw">Confirm Password</string>
     <string name="input_fname">Enter First Name</string>
     <string name="input_lname">Enter Last Name</string>
@@ -67,4 +67,6 @@
     <string name="FirstName">John</string>
     <string name="SignOutButton">Sign Out</string>
     <string name="TestUserEmail">john123@email.com</string>
+    <string name="AdminHeader">Blockchain Network</string>
+    <string name="AdminSignOut">Admin</string>
 </resources>

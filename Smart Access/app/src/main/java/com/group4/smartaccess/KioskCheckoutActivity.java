@@ -32,7 +32,7 @@ public class KioskCheckoutActivity extends AppCompatActivity {
     public void checkOutSuccess (View view){
         Intent checkOutSuccess = new Intent (this, CheckOutSuccessfulActivity.class);
         startActivity(checkOutSuccess);
-        finish();
+        returnTimer.cancel();
     }
 
     CountDownTimer returnTimer = new CountDownTimer(30000, 1000) {

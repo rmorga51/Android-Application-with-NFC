@@ -1,5 +1,6 @@
 package com.group4.smartaccess;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 
 public class AdminModeActivity extends AppCompatActivity {
 
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,16 @@ public class AdminModeActivity extends AppCompatActivity {
             View decorView = getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
             decorView.setSystemUiVisibility(uiOptions);
+        }
+    }
+
+    public void adminLogOut (View view){
+        if(count == 3){
+            Intent logOut = new Intent (this, LoginScreenActivity.class);
+            startActivity(logOut);
+        }
+        else {
+            count++;
         }
     }
 

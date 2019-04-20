@@ -22,11 +22,16 @@ public class LoginScreenActivity extends AppCompatActivity {
         if(emailEntered.equals(getString(R.string.TestUserEmail))){
             startActivity(consumer);
         }
-        else if(emailEntered.equals("kiosk@kiosk.com")){
+        else if(emailEntered.equals("kiosk@email.com")){
             startActivity(kiosk);
         }
-        else if(emailEntered.equals("admin@admin.com")){
+        else if(emailEntered.equals("admin@email.com")){
             startActivity(admin);
         }
+    }
+
+    public void register (View view){
+        Intent register = new Intent(this, RegisterScreenActivity.class);
+        startActivity(register);
     }
 }

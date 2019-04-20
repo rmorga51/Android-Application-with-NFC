@@ -31,7 +31,7 @@ public class CheckInSuccessfullyActivity extends AppCompatActivity {
     public void returnHome(View view){
         Intent returnHome = new Intent (this, KioskModeActivity.class);
         startActivity(returnHome);
-        finish();
+        returnTimer.cancel();
     }
 
     CountDownTimer returnTimer = new CountDownTimer(10000, 1000) {

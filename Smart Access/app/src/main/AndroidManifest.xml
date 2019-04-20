@@ -12,7 +12,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".CheckInSuccessfullyActivity"
-            android:parentActivityName=".KioskCheckInActivity"/>
+            android:parentActivityName=".KioskCheckInActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".CheckOutSuccessfulActivity"
             android:parentActivityName=".KioskCheckoutActivity"
