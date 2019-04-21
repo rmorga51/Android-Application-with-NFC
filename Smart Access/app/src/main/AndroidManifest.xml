@@ -3,6 +3,10 @@
     xmlns:style="http://schemas.android.com/apk/res-auto"
     package="com.group4.smartaccess">
 
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +33,13 @@
         <activity
             android:name=".KioskCheckInActivity"
             android:parentActivityName=".KioskReservationActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape" >\
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" /> <!-- TODO check if this line causes NFC to relaunch app-->
+                <data android:mimeType="application/vnd.com.royce.nfcapp_04" /> <!--Dont Forget this line-->
+            </intent-filter>
+        </activity>>
         <activity
             android:name=".AdminModeActivity"
             android:parentActivityName=".LoginScreenActivity"
@@ -53,6 +63,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

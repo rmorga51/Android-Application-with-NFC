@@ -1,12 +1,12 @@
 package com.group4.smartaccess;
 
 import android.content.Intent;
-import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class KioskReservationActivity extends AppCompatActivity {
 
@@ -33,11 +33,15 @@ public class KioskReservationActivity extends AppCompatActivity {
     }
 
     public void submit(View view){
+        TextView textView28 = findViewById(R.id.textView9); // Added to test
         Intent checkIn = new Intent (this, KioskCheckInActivity.class);
         EditText reservationNum = findViewById(R.id.reservation);
         String reservationEntered = reservationNum.getText().toString();
         String reservationCheck = getResources().getString(R.string.ReservationNumber);
         if(Integer.parseInt(reservationEntered) == Integer.parseInt(reservationCheck)){
+            // send reservation number to the server
+            final ServerConnect serverConnect = new ServerConnect(); // Added to test. Add textview to constructor to test
+            serverConnect.execute("http://smartaccess.openode.io/"); // URL goes here. Change this line to the correct URL
             startActivity(checkIn);
             returnTimer.cancel();
         }
