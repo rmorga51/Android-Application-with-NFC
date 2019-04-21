@@ -15,7 +15,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="Greeting">Hello</string>
+    <string name="Greeting">Hello,</string>
     <string name="Name">Name</string>
     <string name="Total_Points">4,201,337</string>
     <string name="Points_Text">Loyalty Points</string>
@@ -73,4 +73,7 @@
     <string name="CheckOutError">Invalid Last Name and/or Room Number</string>
     <string name="FirstNameLabel">First Name:</string>
     <string name="EmailLabel">Email:</string>
+    <string name="ReservationButton">Reservation Information</string>
+    <string name="RoomButton">Enter Room</string>
+    <string name="AccountButton">Account Details</string>
 </resources>
