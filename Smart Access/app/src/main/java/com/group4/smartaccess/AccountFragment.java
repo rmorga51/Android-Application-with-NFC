@@ -23,7 +23,7 @@ public class AccountFragment extends Fragment {
         getActivity().setTitle("Account Details");
         // Inflate the layout for this fragment
         View account = inflater.inflate(R.layout.fragment_account, container, false);
-        final View signOut = account.findViewById(R.id.textView30);
+        final View signOut = account.findViewById(R.id.button9);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
