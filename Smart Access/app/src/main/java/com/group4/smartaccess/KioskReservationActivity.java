@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class KioskReservationActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,9 @@ public class KioskReservationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_kiosk_reservation);
         getSupportActionBar().hide();
         returnTimer.start();
+        TextView errorMessage = findViewById(R.id.textView10);
+        errorMessage.setVisibility(View.INVISIBLE);
+
     }
 
     @Override
@@ -37,9 +40,19 @@ public class KioskReservationActivity extends AppCompatActivity {
         EditText reservationNum = findViewById(R.id.reservation);
         String reservationEntered = reservationNum.getText().toString();
         String reservationCheck = getResources().getString(R.string.ReservationNumber);
-        if(Integer.parseInt(reservationEntered) == Integer.parseInt(reservationCheck)){
-            startActivity(checkIn);
-            returnTimer.cancel();
+        TextView errorMessage = findViewById(R.id.textView10);
+        if(reservationEntered.isEmpty()){
+            errorMessage.setVisibility(View.VISIBLE);
+        }
+        else{
+            if(Integer.parseInt(reservationEntered) == Integer.parseInt(reservationCheck)){
+                startActivity(checkIn);
+                returnTimer.cancel();
+            }
+            else{
+                errorMessage.setVisibility(View.VISIBLE);
+            }
+
         }
     }
 

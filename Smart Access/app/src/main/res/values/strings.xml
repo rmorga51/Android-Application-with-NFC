@@ -69,4 +69,6 @@
     <string name="TestUserEmail">john123@email.com</string>
     <string name="AdminHeader">Blockchain Network</string>
     <string name="AdminSignOut">Admin</string>
+    <string name="ReservationError">Invalid Reservation Number</string>
+    <string name="CheckOutError">Invalid Last Name and/or Room Number</string>
 </resources>

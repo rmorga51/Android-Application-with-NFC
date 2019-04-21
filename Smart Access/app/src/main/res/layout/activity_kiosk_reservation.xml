@@ -26,9 +26,9 @@
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:background="@color/white"
         android:ems="10"
         android:inputType="number"
-        android:background="@color/white"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,5 +46,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservation" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/ReservationError"
+        android:textColor="@color/colorError"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
 </android.support.constraint.ConstraintLayout>
