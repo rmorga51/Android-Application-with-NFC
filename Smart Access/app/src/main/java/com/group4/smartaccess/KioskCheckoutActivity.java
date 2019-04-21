@@ -6,6 +6,8 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class KioskCheckoutActivity extends AppCompatActivity {
 
@@ -15,6 +17,8 @@ public class KioskCheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_kiosk_checkout);
         getSupportActionBar().hide();
         returnTimer.start();
+        TextView errorMessage = findViewById(R.id.textView11);
+        errorMessage.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -31,8 +35,22 @@ public class KioskCheckoutActivity extends AppCompatActivity {
 
     public void checkOutSuccess (View view){
         Intent checkOutSuccess = new Intent (this, CheckOutSuccessfulActivity.class);
-        startActivity(checkOutSuccess);
-        returnTimer.cancel();
+        TextView errorMessage = findViewById(R.id.textView11);
+        EditText lastName = findViewById(R.id.editText10);
+        String nameEntered = lastName.getText().toString();
+        EditText roomNum = findViewById(R.id.editText9);
+        String roomEntered = roomNum.getText().toString();
+        if(roomEntered.isEmpty()){
+            errorMessage.setVisibility(View.VISIBLE);
+        }
+        else if(Integer.parseInt(roomEntered) == Integer.parseInt(getResources().getString(R.string.RoomNumber)) && nameEntered.equals(getString(R.string.LastName))){
+            startActivity(checkOutSuccess);
+            returnTimer.cancel();
+        }
+        else{
+            errorMessage.setVisibility(View.VISIBLE);
+        }
+
     }
 
     CountDownTimer returnTimer = new CountDownTimer(30000, 1000) {
