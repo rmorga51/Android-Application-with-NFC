@@ -59,7 +59,6 @@ public class KioskReservationActivity extends AppCompatActivity implements Async
         else{
             if(Integer.parseInt(reservationEntered) == Integer.parseInt(reservationCheck)){
                 // send reservation number to the server
-                final ServerConnect serverConnect = new ServerConnect(); // Added to test. Add textview to constructor to test
                 serverConnect.execute("http://smartaccess.openode.io/"); // URL goes here. Change this line to the correct URL
                 Log.e("Response:", ""+ server_response);
             }
