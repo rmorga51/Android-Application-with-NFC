@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class KioskReservationActivity extends AppCompatActivity {
-
+public class KioskReservationActivity extends AppCompatActivity implements AsyncResponse{
+    // TODO Add request to retrieve value from server to this activity
+    final ServerConnect serverConnect = new ServerConnect(this);
+    String server_response;
+    Intent checkIn;
+    TextView textView28;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +22,9 @@ public class KioskReservationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_kiosk_reservation);
         getSupportActionBar().hide();
         returnTimer.start();
+        textView28 = findViewById(R.id.textView9); // Added to test
+        serverConnect.delegate = this;
+
     }
 
     @Override
@@ -33,18 +41,24 @@ public class KioskReservationActivity extends AppCompatActivity {
     }
 
     public void submit(View view){
-        TextView textView28 = findViewById(R.id.textView9); // Added to test
-        Intent checkIn = new Intent (this, KioskCheckInActivity.class);
+        checkIn = new Intent (this, KioskCheckInActivity.class);
         EditText reservationNum = findViewById(R.id.reservation);
         String reservationEntered = reservationNum.getText().toString();
         String reservationCheck = getResources().getString(R.string.ReservationNumber);
         if(Integer.parseInt(reservationEntered) == Integer.parseInt(reservationCheck)){
             // send reservation number to the server
-            final ServerConnect serverConnect = new ServerConnect(); // Added to test. Add textview to constructor to test
             serverConnect.execute("http://smartaccess.openode.io/"); // URL goes here. Change this line to the correct URL
-            startActivity(checkIn);
-            returnTimer.cancel();
+            Log.e("Response:", ""+ server_response);
+/*            startActivity(checkIn);
+            returnTimer.cancel();*/
         }
+    }
+
+    public void startActivity(){
+        checkIn.putExtra("RESPONSE", server_response); // add the server_response to the intent
+        Log.e("Response:", "You made it: "+ server_response);
+        startActivity(checkIn);
+        returnTimer.cancel();
     }
 
     CountDownTimer returnTimer = new CountDownTimer(30000, 1000) {
@@ -66,6 +80,9 @@ public class KioskReservationActivity extends AppCompatActivity {
         returnTimer.cancel();
     }
 
-
-
+    // receives value from the Async task ServerConnect
+    @Override
+    public void processFinish(String output) {
+        server_response = output;
+    }
 }

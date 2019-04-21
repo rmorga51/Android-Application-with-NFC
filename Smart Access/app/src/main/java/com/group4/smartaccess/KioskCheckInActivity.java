@@ -2,19 +2,25 @@ package com.group4.smartaccess;
 
 import android.content.Intent;
 import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
 // TODO Add request to retrieve value from server to this activity
+
+    String msg;
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,13 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
         ImageView anim = findViewById(R.id.imageView2);
         Glide.with(this).load(R.drawable.placeholderanim).into(anim);
         returnTimer.start();
+        // retrieve extra here
+        textView = findViewById(R.id.textView28);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            msg = extras.getString("RESPONSE"); // should contain the server_response
+        }
         //TODO add NFC here
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if(nfcAdapter == null){
@@ -39,6 +52,9 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
     @Override
     public void onResume(){
         super.onResume();
+        if(NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())){ // runs after onNewIntent
+            processIntent(getIntent());
+        }
         FullScreencall();
     }
 
@@ -75,8 +91,36 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
     }
 
     @Override
-    public NdefMessage createNdefMessage(NfcEvent event) {
-        String msg = ""; // this will hold the
-        return null;
+    public NdefMessage createNdefMessage(NfcEvent event) { // detects an nfc event
+        // Create some NDEF records
+        NdefRecord record1 = NdefRecord.createMime("application/vnd.com.royce.nfcapp_04", msg.getBytes()); // mimetype may have to be changed
+        NdefMessage ndef = new NdefMessage(record1);
+        return ndef;
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        //super.onNewIntent(intent);
+        if(intent.getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED)){ // only use this if the intent is nfc
+            super.onNewIntent(intent);
+        }
+/*        else{
+            setIntent(intent);
+        }*/
+        //setIntent(intent);
+    }
+
+    void processIntent(Intent intent){
+
+        Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+        // Only one message sent during the beam
+        NdefMessage msg = (NdefMessage) rawMsgs[0];
+        // Record 0 contains the MIME type, record 1 is the AAr, if present
+        String payload = new String(msg.getRecords()[0].getPayload()); // holds the actual nfc payload
+        textView.setText(payload);
+
+
+    }
+
+
 }

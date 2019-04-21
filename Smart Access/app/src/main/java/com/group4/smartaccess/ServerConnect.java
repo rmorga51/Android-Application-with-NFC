@@ -17,9 +17,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ServerConnect extends AsyncTask<String, Void, String> {
+
+    public AsyncResponse delegate = null;
     String server_response;
     String request;
     TextView textView;
+    private KioskReservationActivity kioskReservationActivity;
+
+    public ServerConnect(KioskReservationActivity kioskReservationActivity) {
+        this.kioskReservationActivity = kioskReservationActivity;
+    }
 
     public ServerConnect (TextView textView){
         this.textView = textView;
@@ -89,7 +96,7 @@ public class ServerConnect extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
 
-        return request;
+        return server_response;
     }
 
     // Return the information here
@@ -101,7 +108,8 @@ public class ServerConnect extends AsyncTask<String, Void, String> {
         Log.e("Response", "" + server_response); // Log read in Logcat
         //setServer_response(s);
         //textView.setText(server_response);
-
+        delegate.processFinish(server_response); // this allows the result to be used in the Activity
+        kioskReservationActivity.startActivity();
     }
 
     // Convert inputstream to String
