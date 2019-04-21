@@ -7,6 +7,7 @@ Login Information
 	Admin: admin@email.com
 	
 Submission Information
+
 	Last Name: Smith
 	Room Number: 455
 	Reservation Number: 12345
