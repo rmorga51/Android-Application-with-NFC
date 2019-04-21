@@ -1,17 +1,20 @@
 package com.group4.smartaccess;
 
 import android.content.Intent;
-import android.os.Build;
+import android.nfc.NdefMessage;
+import android.nfc.NfcAdapter;
+import android.nfc.NfcEvent;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class KioskCheckInActivity extends AppCompatActivity {
-
+public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
+// TODO Add request to retrieve value from server to this activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,17 @@ public class KioskCheckInActivity extends AppCompatActivity {
         ImageView anim = findViewById(R.id.imageView2);
         Glide.with(this).load(R.drawable.placeholderanim).into(anim);
         returnTimer.start();
+        //TODO add NFC here
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if(nfcAdapter == null){
+            Toast.makeText(this,"You must enable NFC", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "NFC is enabled", Toast.LENGTH_SHORT).show();
+        }
+
+        // Set callback
+        nfcAdapter.setNdefPushMessageCallback(this,this);
     }
 
     @Override
@@ -58,5 +72,11 @@ public class KioskCheckInActivity extends AppCompatActivity {
     public void onDestroy(){
         super.onDestroy();
         returnTimer.cancel();
+    }
+
+    @Override
+    public NdefMessage createNdefMessage(NfcEvent event) {
+        String msg = ""; // this will hold the
+        return null;
     }
 }
