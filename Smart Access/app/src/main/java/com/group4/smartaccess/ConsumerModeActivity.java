@@ -8,15 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class ConsumerModeActivity extends AppCompatActivity {
 
 
-    final Fragment roomFragment = new RoomFragment();
-    final Fragment reservationFragment = new ReservationFragment();
-    final Fragment accountFragment = new AccountFragment();
-    final FragmentManager manager = getSupportFragmentManager();
 
 
     @Override
@@ -25,8 +22,6 @@ public class ConsumerModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consumer_mode);
         getSupportActionBar().hide();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
     @Override
@@ -35,44 +30,20 @@ public class ConsumerModeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_reservations:
-                    manager.beginTransaction().replace(R.id.consumer_container, reservationFragment, "reserve").commit();
-                    return true;
-                case R.id.navigation_room:
-                    manager.beginTransaction().replace(R.id.consumer_container, roomFragment, "room").commit();
-                    return true;
-                case R.id.navigation_account:
-                    manager.beginTransaction().replace(R.id.consumer_container, accountFragment, "account").commit();
-                    return true;
-            }
-            return false;
-        }
-    };
 
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item){
-        if (item.getItemId() == android.R.id.home){
-          onBackPressed();
-          return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void viewReservation (View view){
+        Intent reservation = new Intent (this, ReservationActivity.class);
+        startActivity(reservation);
     }
 
-    @Override
-    public void onBackPressed() {
-        if(manager.getBackStackEntryCount() > 0){
-            manager.popBackStack();
-        }
-        else {
-            super.onBackPressed();
-            Intent consumer = new Intent (this, ConsumerModeActivity.class);
-            startActivity(consumer);
-        }
+    public void viewRoom (View view){
+        Intent room = new Intent (this, RoomActivity.class);
+        startActivity(room);
+    }
+
+    public void viewAccount (View view){
+        Intent account = new Intent (this, AccountActivity.class);
+        startActivity(account);
     }
 }

@@ -31,7 +31,7 @@ public class KioskModeActivity extends AppCompatActivity {
     }
 
     public void checkIn(View view){
-        Intent checkIn = new Intent (this, KioskReservationActivity.class);
+        Intent checkIn = new Intent (this, KioskCheckInActivity.class);
         startActivity(checkIn);
     }
 
