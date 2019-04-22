@@ -76,4 +76,5 @@
     <string name="ReservationButton">Reservation Information</string>
     <string name="RoomButton">Enter Room</string>
     <string name="AccountButton">Account Details</string>
+    <string name="RequestKeyButton">Request Key</string>
 </resources>
