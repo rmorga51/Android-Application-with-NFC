@@ -35,12 +35,10 @@ public class AdminModeActivity extends AppCompatActivity {
     }
 
     public void adminLogOut (View view){
+        count++;
         if(count == 3){
             Intent logOut = new Intent (this, LoginScreenActivity.class);
             startActivity(logOut);
-        }
-        else {
-            count++;
         }
     }
 
