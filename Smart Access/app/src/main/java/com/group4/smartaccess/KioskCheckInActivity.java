@@ -19,8 +19,10 @@ import com.bumptech.glide.Glide;
 public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback {
 // TODO Add request to retrieve value from server to this activity
 
+    String payload;
     String msg;
     TextView textView;
+    final SendReservation sendReservation = new SendReservation(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,10 +118,15 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
         // Only one message sent during the beam
         NdefMessage msg = (NdefMessage) rawMsgs[0];
         // Record 0 contains the MIME type, record 1 is the AAr, if present
-        String payload = new String(msg.getRecords()[0].getPayload()); // holds the actual nfc payload
-        textView.setText(payload);
+        payload = new String(msg.getRecords()[0].getPayload()); // holds the actual nfc payload
+        sendReservation.execute("http://smartaccess.openode.io/", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
 
 
+
+    }
+
+    public String updateView(){
+        return payload;
     }
 
 
