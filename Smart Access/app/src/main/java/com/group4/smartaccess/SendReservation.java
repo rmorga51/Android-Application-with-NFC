@@ -68,9 +68,9 @@ protected String doInBackground(String... strings) {
         // HERE ARE THE PARAMETERS FOR THE JSON OBJECT //
             // NEED NEW PARAPMETERS
         JSONObject params = new JSONObject();
-        params.put("param1", "yes");
-        params.put("param2", "no");
-        params.put("param3", "yes");
+        params.put("$class", "org.example.basic.checkIn");
+        params.put("guest", "resource:org.example.basic.Guest#9208");
+        params.put("res_code", payload);
 
         Log.i("JSON", params.toString());
         DataOutputStream os = new DataOutputStream(conn.getOutputStream());
