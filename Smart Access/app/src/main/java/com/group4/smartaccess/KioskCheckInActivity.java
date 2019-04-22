@@ -125,8 +125,8 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
 
     }
 
-    public String updateView(){
-        return payload;
+    public void updateView(){
+        // USE THIS METHOD TO UPDATE SCREEN AFTER CHECK-IN OCCURS
     }
 
 
