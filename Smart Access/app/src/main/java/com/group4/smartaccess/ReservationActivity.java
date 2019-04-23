@@ -8,13 +8,12 @@ import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReservationActivity extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback{
 
     String msg;
-    TextView textView;
+    String res_code = "ATGH36";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,7 @@ public class ReservationActivity extends AppCompatActivity implements NfcAdapter
         else{
             Toast.makeText(this, "NFC is enabled", Toast.LENGTH_SHORT).show();
         }
-        textView = findViewById(R.id.textView37);
-        msg = textView.getText().toString(); // holds the reservation number, may also hold another value
+        msg = res_code; // holds the reservation number, may also hold another value
 
         // Set callback
         nfcAdapter.setNdefPushMessageCallback(this,this);
