@@ -2,7 +2,6 @@ package com.group4.smartaccess;
 
 import android.content.Intent;
 import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ public class RoomActivity extends AppCompatActivity implements NfcAdapter.Create
     String guestId;
     String msg;
     String server_response;
-    String transactionID;
+    NdefMessage transactionID = null;
     AccessRoom accessRoom;
 
 
@@ -61,12 +60,12 @@ public class RoomActivity extends AppCompatActivity implements NfcAdapter.Create
     public NdefMessage createNdefMessage(NfcEvent event) { // should detect nfc event
         // Create some NDEF records
         accessRoom = new AccessRoom(RoomActivity.this);
-        accessRoom.execute("http://smartaccess.openode.io/api/org.example.basic.openRoom", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
-        //sendReservation.execute("http://169.254.43.142:3000/api/org.example.basic.openRoom", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
-
-        NdefRecord record1 = NdefRecord.createMime("application/vnd.com.royce.nfcapp_04", msg.getBytes()); // mimetype may have to be changed
-        NdefMessage ndef = new NdefMessage(record1);
-        return ndef;
+        //accessRoom.execute("http://smartaccess.openode.io/api/org.example.basic.openRoom", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
+        accessRoom.execute("http://169.254.43.142:3000/api/org.example.basic.openRoom", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
+        /*NdefRecord record1 = NdefRecord.createMime("application/vnd.com.royce.nfcapp_04", msg.getBytes()); // mimetype may have to be changed
+        NdefMessage ndef = new NdefMessage(record1);*/
+        while(transactionID == null){}
+        return transactionID;
     }
 
     @Override
@@ -97,7 +96,7 @@ public class RoomActivity extends AppCompatActivity implements NfcAdapter.Create
     public void processFinish(String output) {
         // TODO: Add either the pass code or transaction id
 
-        transactionID = output;
+        //transactionID = output;
         /*transactionID =
         Intent intent = new Intent(this, RoomActivity.class);
         *//*intent.putExtra("PASS_CODE", passCode); // null for now
@@ -106,7 +105,7 @@ public class RoomActivity extends AppCompatActivity implements NfcAdapter.Create
     }
 
     @Override
-    public void sendMessage(NdefMessage output) {
-
+    public void sendMessage(NdefMessage output1) {
+        transactionID = output1;
     }
 }

@@ -29,8 +29,8 @@ public class ConsumerModeActivity extends AppCompatActivity implements AsyncResp
             @Override
             public void onClick(View v) {
                 getDoorKey = new GetDoorKey(ConsumerModeActivity.this);
-                getDoorKey.execute("http://smartaccess.openode.io/api/org.example.basic.Guest/9208"); // sends ID
-                //getDoorKey.execute("http://169.254.43.142:3000/api/org.example.basic.Guest/9208");
+                //getDoorKey.execute("http://smartaccess.openode.io/api/org.example.basic.Guest/9208"); // sends ID
+                getDoorKey.execute("http://169.254.43.142:3000/api/org.example.basic.Guest/9208");
             }
         });
 

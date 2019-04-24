@@ -47,9 +47,9 @@ public class AccessRoom extends AsyncTask<String, Void, String> implements NfcAd
             conn.connect();
             // HERE ARE THE PARAMETERS FOR THE JSON OBJECT //
             JSONObject params = new JSONObject();
-            params.put("$class", "org.example.basic.checkIn");
+            params.put("$class", "org.example.basic.openRoom");
             params.put("guest", "resource:org.example.basic.Guest#9208");
-            params.put("room", "resource:org.example.basic.Room#2593");
+            params.put("room", "resource:org.example.basic.Room#9932");
 
             Log.i("JSON", params.toString());
             DataOutputStream os = new DataOutputStream(conn.getOutputStream());
@@ -84,8 +84,9 @@ public class AccessRoom extends AsyncTask<String, Void, String> implements NfcAd
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        int i = server_response.indexOf("transactionId");
 
-        transactionID = server_response.substring(150, 214);
+        transactionID = server_response.substring(i+16, i+80);
         msg = transactionID;
         Log.d("SERVER:", "" + server_response);
         Log.e("Response", "" + server_response); // Log read in Logcat
