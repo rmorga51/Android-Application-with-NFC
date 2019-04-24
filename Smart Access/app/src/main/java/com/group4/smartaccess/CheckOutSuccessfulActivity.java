@@ -14,6 +14,7 @@ public class CheckOutSuccessfulActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out_successful);
         getSupportActionBar().hide();
+        FullScreencall();
         returnTimer.start();
     }
 

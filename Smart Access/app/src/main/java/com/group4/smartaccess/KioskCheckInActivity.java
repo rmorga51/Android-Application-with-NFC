@@ -28,6 +28,7 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kiosk_check_in);
         getSupportActionBar().hide();
+        FullScreencall();
         ImageView anim = findViewById(R.id.imageView2);
         Glide.with(this).load(R.drawable.kioskanimation).into(anim);
         returnTimer.start();
