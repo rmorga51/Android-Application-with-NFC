@@ -77,4 +77,5 @@
     <string name="RoomButton">Enter Room</string>
     <string name="AccountButton">Account Details</string>
     <string name="RequestKeyButton">Request Key</string>
+    <string name="RequestKeyMessage">*Tap \"Request Key\" on your device to receive the virtual key</string>
 </resources>
