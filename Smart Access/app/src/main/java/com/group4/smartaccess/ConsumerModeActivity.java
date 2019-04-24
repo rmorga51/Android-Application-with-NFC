@@ -61,11 +61,12 @@ public class ConsumerModeActivity extends AppCompatActivity implements AsyncResp
     @Override
     public void processFinish(String output) {
         // TODO: Add either the pass code or transaction id
-        guestID = output.substring(46,51);
+        guestID = output.substring(47,51); // contains guest id
+        passCode = output.substring(222,227); // contains pass code
         server_response = output;
         Intent intent = new Intent(this, RoomActivity.class);
-        intent.putExtra("PASS_CODE", ""); // null for now
-        intent.putExtra("GUEST_ID", server_response);
+        intent.putExtra("PASS_CODE", passCode); // null for now
+        intent.putExtra("GUEST_ID", guestID);
         startActivity(intent);
     }
 }
