@@ -15,7 +15,7 @@ public class RoomActivity extends AppCompatActivity {
         getSupportActionBar().show();
         setTitle("Enter Room");
         ImageView anim = findViewById(R.id.imageView3);
-        Glide.with(this).load(R.drawable.placeholderanim).into(anim);
+        Glide.with(this).load(R.drawable.dooranimation2).into(anim);
 
     }
 }

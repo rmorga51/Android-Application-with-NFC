@@ -42,11 +42,9 @@ public class KioskModeActivity extends AppCompatActivity {
 
     public void logOut(View view){
         Intent logIn = new Intent (this, LoginScreenActivity.class);
+        count++;
         if(count == 3){
             startActivity(logIn);
-        }
-        else {
-            count++;
         }
     }
 

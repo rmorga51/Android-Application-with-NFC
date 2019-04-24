@@ -29,7 +29,7 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
         setContentView(R.layout.activity_kiosk_check_in);
         getSupportActionBar().hide();
         ImageView anim = findViewById(R.id.imageView2);
-        Glide.with(this).load(R.drawable.placeholderanim).into(anim);
+        Glide.with(this).load(R.drawable.kioskanimation).into(anim);
         returnTimer.start();
         // retrieve extra here
         textView = findViewById(R.id.textView28);
@@ -127,6 +127,9 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
 
     public void updateView(){
         // USE THIS METHOD TO UPDATE SCREEN AFTER CHECK-IN OCCURS
+        Intent checkInSuccess = new Intent (this, CheckInSuccessfullyActivity.class);
+        startActivity(checkInSuccess);
+        returnTimer.cancel();
     }
 
 
