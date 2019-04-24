@@ -54,7 +54,7 @@
     <string name="SuccessfulCheckOut">Successfully Checked Out</string>
     <string name="ReservationSuccess">Reservation Number Received</string>
     <string name="ScanMessage">Scan your NFC Device</string>
-    <string name="NFCWarning">*Make sure your NFC is on</string>
+    <string name="NFCWarning">*Make sure your device\'s NFC is enabled</string>
     <string name="CheckInSuccessText">Successfully Checked In</string>
     <string name="ReturnButton">Finish</string>
     <string name="ReservationNumberLabel">Reservation Number:</string>
