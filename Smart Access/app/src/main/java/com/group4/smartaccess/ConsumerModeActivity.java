@@ -11,6 +11,10 @@ public class ConsumerModeActivity extends AppCompatActivity implements AsyncResp
     String server_response;
     Button button17;
     GetDoorKey getDoorKey;
+    String guestID;
+    String roomNum;
+    String transactionID;
+    String passCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +28,9 @@ public class ConsumerModeActivity extends AppCompatActivity implements AsyncResp
         button17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getDoorKey = new GetDoorKey();
-                getDoorKey.execute("http://169.254.43.142:3000/api/org.example.basic.Guest/9208");
+                getDoorKey = new GetDoorKey(ConsumerModeActivity.this);
+                getDoorKey.execute("http://smartaccess.openode.io/api/org.example.basic.Guest/9208"); // sends ID
+                //getDoorKey.execute("http://169.254.43.142:3000/api/org.example.basic.Guest/9208");
             }
         });
 
@@ -55,9 +60,12 @@ public class ConsumerModeActivity extends AppCompatActivity implements AsyncResp
 
     @Override
     public void processFinish(String output) {
+        // TODO: Add either the pass code or transaction id
+        guestID = output.substring(46,51);
         server_response = output;
         Intent intent = new Intent(this, RoomActivity.class);
-        intent.putExtra("ROOM_KEY", server_response);
+        intent.putExtra("PASS_CODE", ""); // null for now
+        intent.putExtra("GUEST_ID", server_response);
         startActivity(intent);
     }
 }

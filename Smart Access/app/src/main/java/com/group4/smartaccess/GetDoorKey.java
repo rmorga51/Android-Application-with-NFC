@@ -2,6 +2,7 @@ package com.group4.smartaccess;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +17,9 @@ public class GetDoorKey extends AsyncTask<String, Void, String> {
     public AsyncResponse delegate = null;
     String server_response;
 
+    public GetDoorKey(AsyncResponse delegate) {
+        this.delegate = delegate;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
