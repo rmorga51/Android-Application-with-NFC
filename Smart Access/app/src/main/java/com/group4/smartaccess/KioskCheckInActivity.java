@@ -120,6 +120,7 @@ public class KioskCheckInActivity extends AppCompatActivity implements NfcAdapte
         NdefMessage msg = (NdefMessage) rawMsgs[0];
         // Record 0 contains the MIME type, record 1 is the AAr, if present
         payload = new String(msg.getRecords()[0].getPayload()); // holds the actual nfc payload
+        //sendReservation.execute("http://smartaccess.openode.io/api/org.example.basic.checkIn", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
         sendReservation.execute("http://169.254.43.142:3000/api/org.example.basic.checkIn", payload); // URL goes here. Change this line to the correct URL, second parameter is the payload
 
 
