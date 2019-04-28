@@ -16,17 +16,13 @@ public class LoginScreenActivity extends AppCompatActivity {
     public void login (View view){
         Intent consumer = new Intent(this, ConsumerModeActivity.class);
         Intent kiosk = new Intent(this, KioskModeActivity.class);
-        Intent admin = new Intent(this, AdminModeActivity.class);
-        EditText email = (EditText) findViewById(R.id.email);
+        EditText email = findViewById(R.id.email);
         String emailEntered = email.getText().toString();
         if(emailEntered.equals(getString(R.string.TestUserEmail))){
             startActivity(consumer);
         }
         else if(emailEntered.equals("kiosk@email.com")){
             startActivity(kiosk);
-        }
-        else if(emailEntered.equals("admin@email.com")){
-            startActivity(admin);
         }
     }
 

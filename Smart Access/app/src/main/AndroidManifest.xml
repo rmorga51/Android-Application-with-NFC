@@ -47,10 +47,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AdminModeActivity"
-            android:parentActivityName=".LoginScreenActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".KioskModeActivity"
             android:screenOrientation="landscape" />
         <activity
