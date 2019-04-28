@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ConsumerModeActivity extends AppCompatActivity {
+public class ConsumerModeActivity extends AppCompatActivity implements AsyncResponse {
 
 
     String server_response;
