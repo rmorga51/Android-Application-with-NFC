@@ -5,6 +5,8 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class KioskModeActivity extends AppCompatActivity {
 
@@ -14,6 +16,7 @@ public class KioskModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kiosk_mode);
         getSupportActionBar().hide();
+        FullScreencall();
         count = 0;
 
     }

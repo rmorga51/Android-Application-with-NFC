@@ -30,7 +30,7 @@ public class RoomActivity extends AppCompatActivity implements NfcAdapter.Create
         getSupportActionBar().show();
         setTitle("Enter Room");
         ImageView anim = findViewById(R.id.imageView3);
-        Glide.with(this).load(R.drawable.dooranimation2).into(anim);
+        Glide.with(this).load(R.drawable.dooranimation3).into(anim);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null)

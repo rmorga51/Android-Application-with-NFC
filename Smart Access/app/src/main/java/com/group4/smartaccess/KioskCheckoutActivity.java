@@ -16,6 +16,7 @@ public class KioskCheckoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kiosk_checkout);
         getSupportActionBar().hide();
+        FullScreencall();
         returnTimer.start();
         TextView errorMessage = findViewById(R.id.textView11);
         errorMessage.setVisibility(View.INVISIBLE);

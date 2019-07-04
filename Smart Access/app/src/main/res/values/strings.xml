@@ -46,16 +46,16 @@
     <string name="CardAccess">Access Room Using Card</string>
     <string name="PhoneAccess">Access Room Using Phone</string>
     <string name="CardScan">Hover Card Over Screen to Receive Virtual Room Key</string>
-    <string name="CheckInButton">Check In</string>
-    <string name="CheckOutButton">Check Out</string>
+    <string name="CheckInButton">Check-In</string>
+    <string name="CheckOutButton">Check-Out</string>
     <string name="ReservationText">Enter Reservaton Number</string>
     <string name="RoomCheckOut">Enter Room Number</string>
     <string name="NameCheckOut">Enter Last Name</string>
-    <string name="SuccessfulCheckOut">Successfully Checked Out</string>
+    <string name="SuccessfulCheckOut">Successfully Checked-Out</string>
     <string name="ReservationSuccess">Reservation Number Received</string>
     <string name="ScanMessage">Scan your NFC Device</string>
-    <string name="NFCWarning">*Make sure your NFC is on</string>
-    <string name="CheckInSuccessText">Successfully Checked In</string>
+    <string name="NFCWarning">*Make sure your device\'s NFC is enabled</string>
+    <string name="CheckInSuccessText">Successfully Checked-In</string>
     <string name="ReturnButton">Finish</string>
     <string name="ReservationNumberLabel">Reservation Number:</string>
     <string name="ReservationNumber">12345</string>
@@ -77,4 +77,5 @@
     <string name="RoomButton">Enter Room</string>
     <string name="AccountButton">Account Details</string>
     <string name="RequestKeyButton">Request Key</string>
+    <string name="RequestKeyMessage">*Tap \"Request Key\" on your device to receive the virtual key</string>
 </resources>
