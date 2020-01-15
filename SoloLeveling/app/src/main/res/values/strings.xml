@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Solo Leveling</string>
+    <string name="create_mission">Create Mission</string>
+    <string name="hint">hint</string>
+    <string name="enter_mission_name">Enter Mission Name</string>
+    <string name="missions">Missions</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_mission2">Create Mission</string>
+    <string name="quest_directions">QUEST DIRECTIONS</string>
+    <string name="preparing_to_become_powerful">Preparing to become powerful</string>
+    <string name="goal">GOAL</string>
+    <string name="will_this_mission_re_occur">Will this mission re-occur</string>
+    <string name="date">date</string>
+    <string name="time">Time</string>
+    <string name="duration">duration</string>
+</resources>

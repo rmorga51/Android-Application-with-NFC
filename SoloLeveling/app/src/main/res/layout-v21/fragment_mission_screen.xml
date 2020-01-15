@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/holo_blue_dark"
+    tools:context=".MissionScreen">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="23sp"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/quest_directions" />
+
+    <TextView
+        android:id="@+id/missionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:textSize="19sp"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/preparing_to_become_powerful" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="140dp"
+        android:textSize="19sp"
+        android:textColor="#52f013"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/goal" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="15sp"
+        android:layout_marginStart="15sp"
+        android:src="@drawable/ic_home_24px"
+        android:tint="@android:color/background_light"
+        android:backgroundTint="#3d3d3d"
+        app:borderWidth="0dp"
+        ></android.support.design.widget.FloatingActionButton>
+
+    <TableLayout
+        android:id="@+id/taskDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190sp">
+
+    </TableLayout>
+</FrameLayout>
